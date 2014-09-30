@@ -1,0 +1,14 @@
+.row
+  .col-md-5
+    h3 Total Votes: {{ tier.total_votes }}
+    nvd3-pie-chart(data='tier.tier_options_attributes', width='300', height='250', x='xFunction()', y='yFunction()', showLabels='true')
+  .col-md-7
+    table.table.table-hover(ts-wrapper)
+      thead
+        tr
+          th(ts-criteria='name', ts-default) Name
+          th(width='75px', ts-criteria='votes') Votes
+      tbody
+        tr(ng-repeat='tierOption in tier.tier_options_attributes', ts-repeat)
+          td {{ tierOption.name }}
+          td {{ tierOption.votes }}

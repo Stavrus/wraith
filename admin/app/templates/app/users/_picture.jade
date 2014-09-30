@@ -1,0 +1,14 @@
+.row
+  .col-md-4
+    camera-capture(width='320px', height='240px', control='cameraControl')
+  .col-md-2
+    div(ng-hide='cameraControl.frozen')
+      button.btn.btn-primary.btn-block(ng-click='cameraControl.takePicture()') Take
+      br
+      button.btn.btn-default.btn-block(ui-sref='users.edit.overview({id: user.id})') Cancel
+    div(ng-show='cameraControl.frozen')
+      button.btn.btn-primary.btn-block(ng-click='uploadCameraCapture()') Upload
+      br
+      button.btn.btn-warning.btn-block(ng-click='cameraControl.frozen = false') Retake
+      br
+      button.btn.btn-default.btn-block(ui-sref='users.edit.overview({id: user.id})') Cancel

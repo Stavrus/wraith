@@ -1,0 +1,25 @@
+.container
+  .row
+    .col-md-8
+      form.form-inline
+        input.form-control(ng-model='match.title', style='width: 300px')
+      form(style='margin-top: 10px')
+        textarea.form-control(ng-model='match.reginfo', rows=8)
+    .col-md-2
+      form
+        h4.text-center Start Time
+        div
+          quick-datepicker(ng-model='match.date_start')
+        h4.text-center End Time
+        div
+          quick-datepicker(ng-model='match.date_end')
+    .col-md-2
+      div
+        button.btn.btn-primary.btn-block(ng-click='save()') Save
+        br
+        button.btn.btn-default.btn-block(ui-sref='matches.list') Cancel
+  .row
+    .panel.panel-default(style='margin-top: 30px')
+      .panel-heading
+        h4 Registration Info
+      .panel-body.text-center(btf-markdown='match.reginfo')

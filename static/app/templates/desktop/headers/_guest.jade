@@ -1,0 +1,23 @@
+.navbar.navbar-inverse
+  .navbar-header
+    button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-inverse-collapse')
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    a.navbar-brand(ui-sref='index') HvZ @ RIT
+  .navbar-collapse.collapse.navbar-inverse-collapse
+    ul.nav.navbar-nav.navbar-right
+      li
+        a(ui-sref='players.list') Players
+      li
+        a(ui-sref='tags.list') Tags
+      li
+        a(ui-sref='clans.list') Clans
+      li
+        a(ui-sref='badges.list') Badges
+      li
+        a(ui-sref='rules') Rules
+      li
+        a(ui-sref='tags.new') Register Tag
+      li
+        a(ng-click='authenticate("google")', style='color: #2A9FD6; margin-right: 20px') Sign In

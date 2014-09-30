@@ -1,0 +1,12 @@
+.container
+  .row(ng-repeat='tier in tiers')
+    .panel.panel-default(style='margin-top: 30px')
+      .panel-heading
+        h4 {{ tier.title }}
+      .panel-body
+        .div(btf-markdown='tier.description')
+        div(ng-repeat='option in tier.tier_options_attributes', ng-hide='tier.voted_for')
+          div(style='display: inline-block')
+            h4 {{ option.name }}
+            button.btn.btn-primary(ng-click='vote(tier.id, option.id)') Vote!
+        p(ng-show='tier.voted_for') You have already voted for this tier.

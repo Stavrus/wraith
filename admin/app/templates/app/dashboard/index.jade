@@ -1,0 +1,14 @@
+.container
+  .row
+    .col-md-2.hidden-print
+      ul.nav.nav-pills.nav-stacked
+        li(ui-sref-active='active')
+          a(ui-sref='dashboard.overview') Overview
+        li(ui-sref-active='active')
+          a(ui-sref='dashboard.ozs') Manage OZs
+        li(ui-sref-active='active')
+          a(ui-sref='dashboard.preview') Preview IDs
+        li(ui-sref-active='active')
+          a(ui-sref='dashboard.print') Print IDs
+    .col-md-10
+      ui-view

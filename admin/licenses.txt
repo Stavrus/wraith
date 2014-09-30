@@ -1,0 +1,1 @@
+This file contains licenses for third-party items checked into source control.

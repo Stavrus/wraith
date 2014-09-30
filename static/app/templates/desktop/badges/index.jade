@@ -1,0 +1,17 @@
+.row(style='margin-top: 50px')
+  .container
+    .col-md-12
+      table.table.table-hover(ts-wrapper)
+        thead
+          tr
+            th(width='200px', ts-criteria='name') Name
+            th(width='100px')
+              input.text-muted.pull-right(type='text', ng-model='form.searchBox')
+            th(ts-criteria='user') Recipient
+            th(width='200px', ts-criteria='created_at', ts-default) Time
+        tbody
+          tr(ng-click='showBadge(badge.id)', ng-repeat='badge in filteredData', ts-repeat)
+            td(style='word-wrap: break-word') {{ badge.name }}
+            td
+            td {{ badge.user }}
+            td {{ badge.created_at | amDateFormat:'dddd h:mm:ss a'}}

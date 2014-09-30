@@ -1,0 +1,27 @@
+.navbar.navbar-inverse
+  .navbar-header
+    button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-inverse-collapse')
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    a.navbar-brand(ng-click='home()') HvZ @ RIT
+  .navbar-collapse.collapse.navbar-inverse-collapse
+    ul.nav.navbar-nav.navbar-right
+      li
+        a(ui-sref='dashboard.overview') Dashboard
+      li
+        a(ui-sref='users.list') Users
+      li
+        a(ui-sref='clans.list') Clans
+      li
+        a(ui-sref='missions.list') Missions
+      li
+        a(ui-sref='avs.list') AVs
+      li
+        a(ui-sref='badges.list') Badges
+      li
+        a(ui-sref='tiers.list') Tiers
+      li
+        a(ui-sref='matches.list') Matches
+      li
+        a(ng-click='signOut()', style='color: #2A9FD6; margin-right: 20px') Sign Out

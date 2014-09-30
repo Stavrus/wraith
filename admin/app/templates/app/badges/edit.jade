@@ -1,0 +1,12 @@
+.container
+  .row
+    .col-md-10
+      form.form-inline
+        input.form-control(ng-model='badge.name', style='width: 300px')
+      form(style='margin-top: 10px')
+        textarea.form-control(ng-model='badge.description', rows=8)
+    .col-md-2
+      div
+        button.btn.btn-primary.btn-block(ng-click='save()') Save
+        br
+        button.btn.btn-default.btn-block(ui-sref='badges.list') Cancel

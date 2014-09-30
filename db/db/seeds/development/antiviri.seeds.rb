@@ -1,0 +1,17 @@
+after 'development:matches', 'development:match_users' do
+  Antivirus.create({:match_id => 1, :uid => '0001'})
+  Antivirus.create({:match_id => 1, :uid => '0002', :match_user_id => 1})
+  Antivirus.create({:match_id => 1, :uid => '0003'})
+  Antivirus.create({:match_id => 1, :uid => '0004'})
+  Antivirus.create({:match_id => 1, :uid => '0005'})
+  Antivirus.create({:match_id => 1, :uid => '0006'})
+  Antivirus.create({:match_id => 1, :uid => '0007'})
+  Antivirus.create({:match_id => 1, :uid => '0008'})
+  Antivirus.create({:match_id => 1, :uid => '0009', :match_user_id => 4})
+  Antivirus.create({:match_id => 1, :uid => '0010'})
+  Antivirus.create({:match_id => 1, :uid => '0011'})
+  Antivirus.create({:match_id => 1, :uid => '0012'})
+  Antivirus.create({:match_id => 1, :uid => '0013'})
+  Antivirus.create({:match_id => 1, :uid => '0014'})
+  Antivirus.create({:match_id => 1, :uid => '0015'})
+end

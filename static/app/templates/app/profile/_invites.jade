@@ -1,0 +1,34 @@
+//- Show pending invites made to user
+div
+  .row
+    table.table.table-hover(ts-wrapper)
+      thead
+        tr
+          th(ts-criteria='name', ts-default) Clan Name
+          th(width='70px')
+            input.text-muted.pull-right(type='text', ng-model='form.searchClanInvites')
+          th(width='250px', ts-criteria='team') Sender
+          th(width='70px')
+      tbody
+        tr(ng-repeat='invite in filteredInvites', ts-repeat)
+          td(style='word-wrap: break-word; line-height: 40px') {{ invite.clan }}
+          td 
+          td(style='line-height: 40px') {{ invite.sender }}
+          td
+            button.btn.btn-primary(ng-click='acceptInvite(invite.id)') Accept
+
+//- Show pending invites made from clan
+div(ng-show='user.clan_id')
+  .row
+    table.table.table-hover(ts-wrapper)
+      thead
+        tr
+          th(ts-criteria='name', ts-default) Invitee
+          th(width='70px')
+            input.text-muted.pull-right(type='text', ng-model='form.searchClanInvites')
+          th(width='335px', ts-criteria='team') Sender
+      tbody
+        tr(ng-repeat='invite in filteredSentInvites', ts-repeat)
+          td(style='word-wrap: break-word') {{ invite.user }}
+          td 
+          td {{ invite.sender }}

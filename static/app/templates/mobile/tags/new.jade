@@ -1,0 +1,12 @@
+.row
+  .container
+    .col-xs-10.col-xs-offset-1
+      form.form-horizontal(role='form')
+        .form-group
+          label.control-label(for='human-tag-label') Human ID
+          input#human-tag-label.form-control(type='text', ng-model='form.target')
+        .form-group
+          label.control-label(for='zombie-tag-label') Zombie ID
+          input#zombie-tag-label.form-control(type='text', ng-model='form.source')
+        br
+        button.btn.btn-primary.center-block(ng-click='save()') Submit

@@ -1,0 +1,12 @@
+.container(ng-show='user.id')
+  .row
+    .col-md-2
+      ul.nav.nav-pills.nav-stacked
+        li(ui-sref-active='active')
+          a(ui-sref='profile.home') Home
+        li(ui-sref-active='active')
+          a(ui-sref='profile.clan', ng-show='matchUser') Clan
+        li(ui-sref-active='active')
+          a(ui-sref='profile.invites', ng-show='matchUser') Clan Invites
+    .col-md-10
+      ui-view

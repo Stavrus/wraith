@@ -1,0 +1,16 @@
+.container
+  .row
+    form(style='margin-bottom: 10px')
+      input.form-control(type='text', ng-model='form.searchBox')
+    table.table(ts-wrapper)
+      thead
+        tr
+          th(ts-criteria='name') Name
+          th(width='150px', ts-criteria='email') Email
+          th(width='75px')
+      tbody
+        tr(ng-repeat='user in filteredData', ts-repeat)
+          td {{user.name}}
+          td {{user.email}}
+          td
+            a.tiny.button(ui-sref='users.edit.overview({id: user.id})') Edit

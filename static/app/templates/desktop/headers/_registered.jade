@@ -1,0 +1,37 @@
+.navbar.navbar-inverse
+  .navbar-header
+    button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-inverse-collapse')
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    a.navbar-brand(ui-sref='index') HvZ @ RIT
+  .navbar-collapse.collapse.navbar-inverse-collapse
+    ul.nav.navbar-nav.navbar-right
+      li
+        a(ui-sref='players.list') Players
+      li
+        a(ui-sref='tags.list') Tags
+      li
+        a(ui-sref='clans.list') Clans
+      li
+        a(ui-sref='badges.list') Badges
+      li
+        a(ui-sref='rules') Rules
+      li
+        a(ui-sref='tags.new') Register Tag
+      li.dropdown(style='margin-right:20px')
+        a.dropdown-toggle(data-toggle='dropdown')
+          span(style='color: #2A9FD6') {{ user.name }}
+          b.caret
+        ul.dropdown-menu
+          li
+            a(ui-sref='profile.home') Profile
+          li
+            a(ui-sref='missions.list') Missions
+          li
+            a(ui-sref='tiers.list') Tiers
+          li
+            a(ui-sref='avs') Antivirus
+          li.divider
+          li
+            a(ng-click='signOut()', style='color: #2A9FD6; font-weight: bold') Sign Out

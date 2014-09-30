@@ -1,0 +1,11 @@
+.div(ng-hide='activeMatch')
+  br
+  .row
+    .small-6.small-offset-3.columns
+      .alert-box.warning(data-alert, style='text-align: center; font-size: 17px; font-weight: bold')
+        span The site administrator has not specified an active match.
+div(ng-show='activeMatch')
+  .visible-xs-block
+    div(ng-include=" '/mobile/index.html' ")
+  .hidden-xs
+    div(ng-include=" '/desktop/index.html' ")

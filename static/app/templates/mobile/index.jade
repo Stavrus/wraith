@@ -1,0 +1,27 @@
+.container(style='margin-top: -30px')
+  .row(style='font-size: 60px')
+    span.pull-left.text-primary(style='margin: 0 10px') {{ activeMatch.humans }}
+    span.pull-right.text-danger(style='margin: 0 10px') {{ activeMatch.zombies }}
+  .row
+    h3.text-center(style='margin: 0px') Leaderboard
+    table.table(style='margin-top: 10px')
+      thead
+        tr
+          th Name
+          th(width='70px') Tags
+      tbody
+        //- Orderby isn't returning properly sorted arrays, have to sort manually
+        tr(ng-repeat="user in matchUsers | limitTo: 5")
+          td(style='word-wrap: break-word') {{ user.name }}
+          td {{ user.tags_count }}
+  .row
+    h3.text-center(style='margin: 0px') Recent Tags
+    table.table(style='margin-top: 10px')
+      thead
+        tr
+          th Zombie
+          th Human
+      tbody
+        tr(ng-repeat='tag in tags | limitTo: 5')
+          td(style='word-wrap: break-word') {{ tag.source }}
+          td {{ tag.target }}

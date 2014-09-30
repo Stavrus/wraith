@@ -1,0 +1,15 @@
+.row(style='margin-top: 50px')
+  .container
+    .col-md-12
+      table.table.table-hover(ts-wrapper)
+        thead
+          tr
+            th(ts-criteria='name') Name
+            th(width='100px')
+              input.pull-right(type='text', ng-model='form.searchBox')
+            th(width='400px', ts-criteria='users_count', ts-default='descending') Members
+        tbody
+          tr(ng-click='showClan(clan.id)', ng-repeat='clan in filteredData', ts-repeat)
+            td(style='word-wrap: break-word') {{ clan.name }}
+            td
+            td {{ clan.users_count }}

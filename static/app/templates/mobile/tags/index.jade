@@ -1,0 +1,13 @@
+.container
+  .row
+    form(style='margin-bottom: 10px')
+      input.form-control(type='text', ng-model='form.searchBox')
+    table.table(ts-wrapper)
+      thead
+        tr
+          th(ts-criteria='target') Human
+          th(ts-criteria='created_at', ts-default='descending') Time
+      tbody
+        tr(ng-repeat='tag in filteredData', ts-repeat)
+          td(style='word-wrap: break-word') {{ tag.target }}
+          td {{ tag.created_at | amDateFormat:'dddd h:mm:ss a'}}

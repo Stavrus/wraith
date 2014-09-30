@@ -1,0 +1,30 @@
+.container
+  .row
+    .col-md-8
+      table.table.table-hover(ts-wrapper, style='min-height: 407px')
+        thead
+          tr
+            th(width='200', ts-criteria='uid', ts-default) UID
+            th(ts-criteria='user') Player
+            th(width='100')
+        tbody
+          tr(ng-repeat='av in filteredData', ts-repeat)
+            td {{ av.uid }}
+            td {{ av.user }}
+            td
+              a(ui-sref='avs.edit({id: av.id})') Edit
+      ul.pager(ng-show='filteredData.length')
+        li(ng-class='{disabled: currentPage == 0}', ng-click='decrementPage()', style='margin:0 10px')
+          a &laquo;
+        li {{ currentPage + 1 }} / {{ numberOfPages() }}
+        li(ng-class='{disabled: currentPage >= filteredData.length / pageSize - 1}', ng-click='incrementPage()', style='margin:0 10px')
+          a &raquo;
+    .col-md-4
+      form
+        input.form-control(type='text', ng-model='form.searchBox')
+      br
+      p {{ filteredData.length }} / {{ avs.length }} results found
+      h4 Create New Antiviruses
+      form.form-inline(name='addForm')
+        input.form-control(type='number', ng-model='form.addNum', required)
+        button.btn.btn-primary.pull-right(ng-click='addNewAvs()',ng-disabled='addForm.$invalid') Add AVs

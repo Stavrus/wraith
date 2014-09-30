@@ -1,0 +1,60 @@
+div(ng-hide='user.clan_id')
+  .row
+    .col-md-3
+    .col-md-4
+      input(type='text', ng-model='form.createClanName').center-block.form-control
+      br
+      button.btn.btn-primary.center-block(ng-click='createClan()') Create Clan
+    .col-md-3
+div(ng-show='user.clan_id')
+  .row
+    .col-md-3
+    .col-md-4
+      button.btn.btn-danger.center-block(ng-click='leaveClan()') Leave Clan
+    .col-md-3
+  .row
+    h2.pull-left {{ user.clan }}
+    div.pull-right(style='line-height: 100px')
+      button.btn.btn-primary(data-toggle='modal', data-target='#modalClanInvite') Invite Players
+    .clearfix
+  .row
+    table.table.table-hover(ts-wrapper)
+      thead
+        tr
+          th(width='250px', ts-criteria='name', ts-default) Name
+          th(width='70px')
+            input.text-muted.pull-right(type='text', ng-model='form.searchClanUsers')
+          th(width='100px', ts-criteria='team') Team
+          th(width='70px')
+      tbody
+        tr(ng-repeat='user in filteredClanUsers', ts-repeat)
+          td(style='word-wrap: break-word; line-height: 40px') {{ user.name }}
+          td 
+          td(style='line-height: 40px') {{ user.team }}
+          td
+            button.btn.btn-danger(ng-click='kickPlayer(user.id)') Kick
+
+//- Modal
+.modal.fade#modalClanInvite(tabindex='-1', role='dialog')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(data-dismiss='modal')
+          span &times;
+        h4.modal-title Invite Players
+      .modal-body
+        form(style='margin-bottom: 10px')
+          input.form-control(type='text', ng-model='form.searchInvitables')
+        table.table.table-hover(ts-wrapper)
+          thead
+            tr
+              th(ts-criteria='name') Name
+              th(width='40px')
+          tbody
+            tr(ng-class='{danger: user.team == "Zombie"}', ng-repeat='user in filteredInvitables | limitTo: 4', ts-repeat)
+              td(style='word-wrap: break-word') {{ user.name }}
+              td
+                button.btn.btn-primary(ng-click='invitePlayer(user.id)') Invite
+      .modal-footer
+        button.btn.btn-default(data-dismiss='modal') Close
+        button.btn.btn-primary Done

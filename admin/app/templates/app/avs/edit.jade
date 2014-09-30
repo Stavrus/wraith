@@ -1,0 +1,11 @@
+.container
+  .row
+    .col-md-10
+      h3 AV Code: {{ av.uid }}
+      form(style='margin-top: 10px')
+        textarea.form-control(ng-model='av.description', rows=8)
+    .col-md-2
+      div
+        button.btn.btn-primary.btn-block(ng-click='save()') Save
+        br
+        button.btn.btn-default.btn-block(ui-sref='avs.list') Cancel

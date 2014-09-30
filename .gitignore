@@ -1,0 +1,15 @@
+# Config files
+.env
+
+# IDE files
+*.sublime*
+**/.DS_Store
+nbproject
+manifest.mf
+build.xml
+.project
+.settings
+.idea/*
+
+# Ignore Vagrant VM files
+.vagrant/

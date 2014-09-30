@@ -1,0 +1,10 @@
+.container
+  .row
+    .col-md-2
+      ul.nav.nav-pills.nav-stacked
+        li(ui-sref-active='active')
+          a(ui-sref='users.edit.overview({id: user.id})') Overview
+        li(ui-sref-active='active')
+          a(ui-sref='users.edit.picture({id: user.id})') Picture
+    .col-md-10
+      ui-view

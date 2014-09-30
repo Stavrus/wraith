@@ -1,0 +1,35 @@
+.row
+  .small-12.columns
+    .vz-panel
+      .head
+        ul.small-block-grid-3
+          li
+            span(style='line-height: 40px; font-size: 45px') {{data.humans_count}}
+          li
+            input(type='text')
+          li
+            span.right(style='line-height: 40px; font-size: 45px') {{data.zombies_count}}
+      ul.small-block-grid-2
+        li
+          ul.list(style='margin: 0px 40px')
+            li.card(ng-repeat='tag in data.tags | limitTo:5', style="background-color: #4B0000")
+              .portrait
+                img(src = 'assets/images/missing.png')
+              .desc
+                span.name {{tag.zombie_name}}
+                span.tagged {{tag.zombie_tag_time}}
+              .tags
+                span {{tag.zombie_tag_count}}
+              .clearfix
+        li
+          ul.list(style='margin: 0px 40px')
+            li.card(ng-repeat='tag in data.tags | limitTo:5', style="background-color: #4B0000")
+              //- hover 5a0f0f
+              .portrait
+                img(src = 'assets/images/missing.png')
+              .desc
+                span.name {{tag.human_name}}
+                span.tagged {{tag.human_tag_time}}
+              .tags
+                span {{tag.human_tag_count}}
+              .clearfix

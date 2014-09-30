@@ -1,0 +1,12 @@
+.card(ng-repeat='user in matchUsers')
+  .top
+    .portrait
+      img(ng-src='user.avatar')
+    .info
+      p.name {{ user.name }}
+      p ID: {{ user.uid }}
+  .bottom
+    hr
+    p.tag2 Tag #2: {{ user.tokens[1].uid }}
+    hr
+    p.tag1 Tag #1: {{ user.tokens[0].uid }}

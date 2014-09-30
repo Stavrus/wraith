@@ -1,0 +1,43 @@
+.row
+  .col-md-6
+    img.img-thumbnail(style='width: 320px; height: 240px', ng-src='{{user.avatar}}')
+  .col-md-4
+    form.form
+      input.form-control(type='text', ng-model='user.name')
+      br
+      select.form-control
+        option Normal
+        option Banned
+        option Moderator
+        option Admin
+  .col-md-2
+    button.btn.btn-primary.btn-block(ng-click='saveUser()') Save
+    button.btn.btn-default.btn-block(ui-sref='users.list') Cancel
+div(ng-show='matchUser')
+  h3 Active Match
+  .row
+    .col-md-6
+      p Player ID: {{ matchUser.uid }}
+      p Token 1:   {{ matchUser.tokens[0].uid }}
+      p Token 2:   {{ matchUser.tokens[1].uid }}
+    .col-md-4
+      div
+        .switch.large(style='display: inline-block')
+          input#switchWaiver(type='checkbox', ng-model='matchUser.waiver')
+          label(for="switchWaiver") Waiver
+        h5(style='margin-left: 1rem; display: inline-block; vertical-align: middle') Waiver
+      div
+        .switch.large(style='display: inline-block')
+          input#switchBandanna(type='checkbox', ng-model='matchUser.bandanna')
+          label(for='switchBandanna') Bandanna
+        h5.left(style='margin-left: 1rem; display: inline-block; vertical-align: middle') Bandanna
+      div
+        .switch.large(style='display: inline-block')
+          input#switchPrinted(type='checkbox', ng-model='matchUser.printed')
+          label(for='switchPrinted') Printed
+        h5.left(style='margin-left: 1rem; display: inline-block; vertical-align: middle') Printed
+    .col-md-2
+      button.btn.btn-primary.btn-block(ng-click='saveMatchUser()') Save
+    .small-3.columns
+.row(ng-hide='matchUser')
+  h3.text-warning.text-center User is not registered for the active match.

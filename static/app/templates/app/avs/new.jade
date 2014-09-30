@@ -1,0 +1,13 @@
+.row(style='margin-top: 40px')
+  .container
+    .col-md-4
+      span &nbsp;
+    .col-md-4
+      form.form-horizontal(role='form')
+        .form-group
+          label.control-label(for='av-label') Antivirus Code
+          input#av-label.form-control(type='text', ng-model='form.av')
+        br
+        button.btn.btn-primary.center-block(ng-click='save()') Submit
+    .col-md-4
+      span &nbsp;

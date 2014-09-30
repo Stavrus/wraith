@@ -1,0 +1,11 @@
+.container
+  .div(ng-show="user.id")
+    .div(ng-hide='activeMatch')
+      br
+      .row
+        .col-md-offset-4
+          span.center-text The site administrator has not specified an active match.
+    .show-for-small
+      div(ng-include=" '/mobile/index.html' ")
+    .hide-for-small
+      div(ng-include=" '/desktop/index.html' ")

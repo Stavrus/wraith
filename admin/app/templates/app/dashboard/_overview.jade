@@ -1,0 +1,28 @@
+.row
+  .col-md-6
+    nvd3-pie-chart(data='teamUsers', x='xFunction()', y='yFunction()', color='colorTeamFunction()',
+                     showLabels='true', pieLabelsOutside='false',
+                     width='450', height='450', style='position: relative; top: -50px')
+  .col-md-6
+    .row
+      .col-md-4
+        span.text-primary(style='font-size: 130px') {{ activeMatch.humans }}
+      .col-md-4.col-md-offset-4
+        span.text-danger(style='font-size: 130px') {{ activeMatch.zombies }}
+    .row
+      .col-md-4.col-md-offset-4
+        button.btn.btn-danger.btn-block(data-toggle='modal' data-target='#modalSetPrinted') Set Printed
+
+//- Set Printed Modal
+.modal.fade#modalSetPrinted(tabindex='-1', role='dialog')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(data-dismiss='modal')
+          span &times;
+        h4.modal-title Set Printed
+      .modal-body
+        span Are you sure you wish to proceed with setting eligible users to printed?
+      .modal-footer
+        button.btn.btn-default(data-dismiss='modal') Close
+        button.btn.btn-primary(ng-click='setPrinted()') Submit

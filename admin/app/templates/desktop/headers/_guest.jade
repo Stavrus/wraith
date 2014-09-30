@@ -1,0 +1,11 @@
+.navbar.navbar-inverse
+  .navbar-header
+    button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-inverse-collapse')
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    a.navbar-brand(ng-click='home()') HvZ @ RIT
+  .navbar-collapse.collapse.navbar-inverse-collapse
+    ul.nav.navbar-nav.navbar-right
+      li
+        a(ng-click='authenticate("google")', style='color: #2A9FD6; margin-right: 20px') Sign In

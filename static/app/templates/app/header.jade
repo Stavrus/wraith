@@ -1,0 +1,7 @@
+div(ng-controller = 'HeaderCtrl')
+  .show-for-small
+    div(ng-hide='user.id', ng-include=" '/mobile/headers/_guest.html' ")
+    div(ng-show='user.id', ng-include=" '/mobile/headers/_registered.html' ")
+  .hide-for-small
+    div(ng-hide='user.id', ng-include=" '/desktop/headers/_guest.html' ")
+    div(ng-show='user.id', ng-include=" '/desktop/headers/_registered.html' ")

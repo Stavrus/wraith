@@ -1,0 +1,74 @@
+div(ng-hide='started', style='padding-top: 50px')
+  .row
+    .container
+      .col-md-2
+        span &nbsp;
+      .col-md-2
+        knob(knob-data='countdown.days', knob-max='max_days', knob-options='knobOptions', readonly, style='float: none; margin: 0 auto;')
+        p.text-center(style='font-weight: bold; font-size: 30px') Days
+      .col-md-2
+        knob(knob-data='countdown.hours', knob-max='max_hours', knob-options='knobOptions', readonly)
+        p.text-center(style='font-weight: bold; font-size: 30px') Hours
+      .col-md-2
+        knob(knob-data='countdown.mins', knob-max='max_minutes', knob-options='knobOptions', readonly)
+        p.text-center(style='font-weight: bold; font-size: 30px') Minutes
+      .col-md-2
+        knob(knob-data='countdown.secs', knob-max='max_seconds', knob-options='knobOptions', readonly)
+        p.text-center(style='font-weight: bold; font-size: 30px') Seconds
+      .col-md-2
+        span &nbsp;
+  .row
+    .container
+      .col-md-2
+        span &nbsp;
+      .col-md-8.center-block
+        .text-center(btf-markdown='activeMatch.reginfo')
+      .col-md-2
+        span &nbsp;
+div(ng-show='started')
+  .container
+    .row
+      .col-md-5
+        .row
+          h3.text-center(style='margin: 0px') Leaderboard
+          table.table.table-hover(style='margin-top: 10px')
+            thead
+              tr
+                th Name
+                th(width='70px') Tags
+            tbody
+              //- Orderby isn't returning properly sorted arrays, have to sort manually
+              tr(ng-repeat="user in matchUsers | limitTo: 5")
+                td(style='word-wrap: break-word') {{ user.name }}
+                td {{ user.tags_count }}
+        .row
+          h3.text-center(style='margin: 0px') Recent Tags
+          table.table.table-hover(style='margin-top: 10px')
+            thead
+              tr
+                th Zombie
+                th Human
+            tbody
+              tr(ng-repeat='tag in tags | limitTo: 5')
+                td(style='word-wrap: break-word') {{ tag.source }}
+                td {{ tag.target }}
+      .col-md-6.col-md-offset-1
+        .row(style='display: flex; justify-content: center')
+            div.center-block(style='padding: 0 10px; display: inline-block')
+              knob(knob-data='countdown.days', knob-max='max_days', knob-options='knobOptionsActive', readonly, style='float: none; margin: 0 auto;')
+              p.text-center(style='font-weight: bold; font-size: 16px; margin-top: -100px') Days
+            div.center-block(style='padding: 0 10px; display: inline-block')
+              knob(knob-data='countdown.hours', knob-max='max_hours', knob-options='knobOptionsActive', readonly)
+              p.text-center(style='font-weight: bold; font-size: 16px; margin-top: -100px') Hours
+            div.center-block(style='padding: 0 10px; display: inline-block')
+              knob(knob-data='countdown.mins', knob-max='max_minutes', knob-options='knobOptionsActive', readonly)
+              p.text-center(style='font-weight: bold; font-size: 16px; margin-top: -100px') Minutes
+            div.center-block(style='padding: 0 10px; display: inline-block')
+              knob(knob-data='countdown.secs', knob-max='max_seconds', knob-options='knobOptionsActive', readonly)
+              p.text-center(style='font-weight: bold; font-size: 16px; margin-top: -100px') Seconds
+        .row(style='font-size: 130px')
+          span.pull-left.text-primary(style='margin: 0 10px') {{ activeMatch.humans }}
+          span.pull-right.text-danger(style='margin: 0 10px') {{ activeMatch.zombies }}
+        .row
+          h3.text-center(style='margin: 0px') Tag Histogram
+          #kill-histogram

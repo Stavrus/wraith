@@ -1,0 +1,20 @@
+div(ng-hide='matchUser')
+  .col-md-offset-3(style='margin-top: 30px; margin-bottom: 20px')
+    span(style='margin-right: 10px') Are you interested in being an OZ (original zombie)?
+    .switch.large(style='display: inline-block; height: 22px')
+      input#switchOZ(type='checkbox', ng-model='form.ozInterest')
+      label(for="switchOZ") {{form.ozInterest}}
+  button.btn.btn-lg.btn-primary.center-block(ng-click='register()') Register
+div(ng-show='matchUser')
+  .card
+    .top
+      .portrait
+        img(ng-src='user.avatar')
+      .info
+        p.name {{ matchUser.name }}
+        p ID: {{ matchUser.uid }}
+    .bottom
+      hr
+      p.tag2 Tag #2: {{ matchUser.tokens[1].uid }}
+      hr
+      p.tag1 Tag #1: {{ matchUser.tokens[0].uid }}

@@ -1,0 +1,26 @@
+.row(style='margin-top: 50px')
+  .container
+    .col-md-12
+      table.table.table-hover(ts-wrapper)
+        thead
+          tr
+            th(width='250px', ts-criteria='name') Name
+            th(width='70px')
+              input.text-muted.pull-right(type='text', ng-model='form.searchBox')
+            th(width='100px', ts-criteria='team') Team
+            th(ts-criteria='clan') Clan
+            th(width='70px', ts-criteria='tags_count', ts-default='descending') Tags
+        tbody
+          //- Show zombies first
+          tr(ng-class='{danger: user.team == "Zombie"}', ng-repeat='user in filteredData | filter:"Zombie"', ts-repeat)
+            td(style='word-wrap: break-word') {{ user.name }}
+            td
+            td {{ user.team }}
+            td(style='word-wrap: break-word; max-width: 300px') {{ user.clan }}
+            td {{ user.tags_count }}
+          tr(ng-repeat='user in filteredData | filter:"Human"', ts-repeat)
+            td(style='word-wrap: break-word') {{ user.name }}
+            td
+            td {{ user.team }}
+            td(style='word-wrap: break-word; max-width: 300px') {{ user.clan }}
+            td {{ user.tags_count }}

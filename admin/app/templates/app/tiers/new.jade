@@ -1,0 +1,26 @@
+.container
+  .row
+    .col-md-8
+      form.form-inline
+        input.form-control(ng-model='match.title', style='width: 300px')
+      form(style='margin-top: 10px')
+        textarea.form-control(ng-model='match.reginfo', rows=8)
+    .col-md-2
+      form
+        h4.text-center Release Time
+        div
+          quick-datepicker(ng-model='match.date_release')
+        h4.text-center End Time
+        div
+          quick-datepicker(ng-model='match.date_end')
+    .col-md-2
+      div
+        button.btn.btn-primary.btn-block(ng-click='save()') Save
+        br
+        button.btn.btn-default.btn-block(ui-sref='tiers.list') Cancel
+  .row
+    .col-md-6.col-md-offset-3
+      form(style='margin-top: 30px')
+        div(ng-repeat='tierOption in tier.tier_options_attributes', style='margin: 5px 0px')
+          input.form-control(type='text', ng-model='tierOption.name')
+        button.btn.btn-primary.center-block(ng-click='addTierOption()') Add Tier Option

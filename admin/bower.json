@@ -1,0 +1,20 @@
+{
+  "name": "Wraith",
+  "version": "0.0.1",
+  "main": "_public/js/app.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "components-font-awesome": "4.0.3",
+    "ngQuickDate": "1.3.0",
+    "angular-markdown-directive": "0.3.0",
+    "ngstorage": "0.3.0",
+    "angularjs-nvd3-directives": "0.0.7"
+  },
+  "resolutions": {
+    "d3": "3.4.11"
+  }
+}

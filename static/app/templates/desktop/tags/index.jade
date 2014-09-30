@@ -1,0 +1,17 @@
+.row(style='margin-top: 50px')
+  .container
+    .col-md-12
+      table.table.table-hover(ts-wrapper)
+        thead
+          tr
+            th(width='300px', ts-criteria='source') Tagger
+            th(width='100px')
+              input.text-muted.pull-right(type='text', ng-model='form.searchBox')
+            th(width='300px', ts-criteria='target') Human
+            th(ts-criteria='created_at', ts-default='descending') Time
+        tbody
+          tr(ng-repeat='tag in filteredData', ts-repeat)
+            td {{ tag.source }}
+            td
+            td {{ tag.target }}
+            td {{ tag.created_at | amDateFormat:'dddd h:mm:ss a'}}

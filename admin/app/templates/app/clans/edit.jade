@@ -1,0 +1,10 @@
+.container
+  .row
+    .col-md-2
+      ul.nav.nav-pills.nav-stacked
+        li(ui-sref-active='active')
+          a(ui-sref='clans.edit.overview({id: clan.id})') Overview
+        //- li(ui-sref-active='active')
+        //-   a(ui-sref='clans.edit.picture({id: clan.id})') Picture
+    .col-md-10
+      ui-view

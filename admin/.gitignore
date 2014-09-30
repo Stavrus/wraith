@@ -1,0 +1,19 @@
+# 3rd Party Libraries
+node_modules/
+bower_components/
+
+# IDE files
+*.sublime*
+**/.DS_Store
+nbproject
+manifest.mf
+build.xml
+.project
+.settings
+.idea/*
+
+# Auto-generated files
+_public
+.sass-cache
+npm-debug.log
+test/test-results.xml

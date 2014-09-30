@@ -1,0 +1,6 @@
+.container
+  .row(ng-repeat='mission in missions')
+    .panel.panel-default(style='margin-top: 30px')
+      .panel-heading
+        h4 {{ mission.title }}
+      .panel-body(btf-markdown='mission.description')

@@ -1,0 +1,19 @@
+.container
+  .row
+    .col-md-10
+      form.form-inline
+        input.form-control(ng-model='mission.title', style='width: 300px')
+        quick-datepicker.pull-right(ng-model='mission.date_release', style='margin-left: 30px')
+        select.form-control.pull-right(ng-model='form.selectBox', ng-options='team.name for team in teams', ng-init='form.selectBox = teams[0]')
+      form(style='margin-top: 10px')
+        textarea.form-control(ng-model='mission.description', rows=8)
+    .col-md-2
+      div
+        button.btn.btn-primary.btn-block(ng-click='save()') Save
+        br
+        button.btn.btn-default.btn-block(ui-sref='missions.list') Cancel
+  .row
+    .panel.panel-default(style='margin-top: 30px')
+      .panel-heading
+        h4 {{ mission.title }}
+      .panel-body(btf-markdown='mission.description')

@@ -1,0 +1,13 @@
+.container
+  .row
+    form(style='margin-bottom: 10px')
+      input.form-control(type='text', ng-model='form.searchBox')
+    table.table(ts-wrapper)
+      thead
+        tr
+          th(ts-criteria='name') Name
+          th(width='70px', ts-criteria='users_count', ts-default='descending') Members
+      tbody
+        tr(ng-repeat='clan in filteredData', ts-repeat)
+          td(style='word-wrap: break-word') {{ clan.name }}
+          td {{ clan.users_count }}

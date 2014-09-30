@@ -1,0 +1,16 @@
+.row(style='margin-top: 40px')
+  .container
+    .col-md-4
+      span &nbsp;
+    .col-md-4
+      form.form-horizontal(role='form')
+        .form-group
+          label.control-label(for='human-tag-label') Human ID
+          input#human-tag-label.form-control(type='text', ng-model='form.target')
+        .form-group
+          label.control-label(for='zombie-tag-label') Zombie ID
+          input#zombie-tag-label.form-control(type='text', ng-model='form.source')
+        br
+        button.btn.btn-primary.center-block(ng-click='save()') Submit
+    .col-md-4
+      span &nbsp;

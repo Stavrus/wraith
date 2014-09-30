@@ -1,0 +1,20 @@
+.row
+  .col-md-6
+    img.img-thumbnail(style='width: 320px; height: 240px', ng-src='{{ clan.avatar }}')
+  .col-md-4
+    form
+      input.form-control(type='text', ng-model='clan.name')
+  .col-md-2
+    button.btn.btn-primary.btn-block(ng-click='save()') Save
+    br
+    button.btn.btn-default.btn-block(ui-sref='clans.list') Cancel
+  .small-3.columns
+.row(style='margin-top: 20px')
+  .col-md-12
+    table.table.table-hover(ts-wrapper)
+      thead
+        tr
+          th(ts-criteria='name', ts-default) Name
+      tbody
+        tr(ng-repeat='user in clanUsers', ts-repeat)
+          td {{ user.name }}
